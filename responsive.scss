@@ -1,0 +1,67 @@
+.hidden-xs {
+  @media screen and (max-width: 767px) {
+    display: none !important;
+  }
+}
+/** Responsive breakpoints mixin **/
+$screen-xs-min: 0px;
+$screen-sm-min: 768px;
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+$screen-xl-min: 1920px;
+$screen-xxl-min: 3000px;
+
+$breakpoint-xs-up: $screen-sm-min;
+$breakpoint-sm-up: $screen-sm-min;
+$breakpoint-md-up: $screen-md-min;
+$breakpoint-lg-up: $screen-lg-min;
+
+@mixin responsive($class) {
+  @if $class == xs {
+    @media (min-width: $screen-xs-min) and (max-width: $screen-xs-max) { @content; }
+  }
+
+  @else if $class == sm-only {
+    @media (max-width: $screen-sm-min) { @content; }
+  }
+
+  @else if $class == sm {
+    @media (min-width: $screen-sm-min) { @content; }
+  }
+
+  @else if $class == md {
+    @media (min-width: $screen-md-min) { @content; }
+  }
+
+  @else if $class == lg {
+    @media (min-width: $screen-lg-min) { @content; }
+  }
+
+  @else if $class == xl {
+    @media (min-width: $screen-xl-min) { @content; }
+  }
+
+  @else if $class == xxl {
+    @media (min-width: $screen-xxl-min) { @content; }
+  }
+
+  @else {
+    @warn "Breakpoint mixin supports: xxs, xs, sm, md, lg";
+  }
+}
+
+//
+// Custom breakpiont.
+//
+@mixin custom_breakpoint($prop_1, $value_1, $prop_2: NULL, $value_2: NULL) {
+  @if $prop_2==NULL {
+    @media ($prop_1: $value_1) {
+      @content;
+    }
+  } @else {
+    @media ($prop_1: $value_1) and ($prop_2: $value_2) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@import "colours.scss";
+
+@mixin btn() {
+  border: none;
+  min-height: 50px;
+  font-family: $futuraCondensed;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 15px 25px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@mixin btnYellow() {
+  @include btn();
+  background-color: $vuOrange;
+  color: lighten($black, 3%);
+  &:hover {
+    color: $black;
+    background-color: darken($vuOrange, 5%)
+  }
+  &:active {
+    background-color: darken($vuOrange, 5%)
+  }
+}
+
+@mixin btnBlue() {
+  @include btn();
+  background-color: $vuBlue;
+  color: $white;
+  &:hover {
+    background-color: darken($vuBlue, 3%)
+  }
+  &:active {
+    background-color: darken($vuBlue, 5%)
+  }
+}
+
+@mixin btnWhiteOutline() {
+  @include btn();
+  background-color: transparent;
+  color: $white;
+  border: 1px solid $white;
+  border-radius: 3px;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  &:active {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}

@@ -1,0 +1,74 @@
+@import "node_modules/getbase/scss/base";
+
+@import 'responsive.scss';
+@import 'colours.scss';
+@import 'type.scss';
+@import 'buttons.scss';
+@import 'mixins.scss';
+
+*::-moz-selection {
+  background: #d6b161;
+  color: #fff;
+  text-shadow: none;
+}
+::-moz-selection {
+  background: #d6b161;
+  color: #fff;
+  text-shadow: none;
+}
+::selection {
+  background: #d6b161;
+  color: #fff;
+  text-shadow: none;
+}
+*::-moz-placeholder {
+  color: #555555;
+  font-size: 14px;
+  opacity: 1;
+}
+*::placeholder {
+  color: #555555;
+  font-size: 14px;
+  opacity: 1;
+}
+
+.img {
+  width: 100%;
+  max-width: 100%;
+  transition: all 0.3s ease-out 0s;
+}
+
+ a, .button {
+  -webkit-transition: all 0.3s ease-out 0s;
+  -moz-transition: all 0.3s ease-out 0s;
+  -ms-transition: all 0.3s ease-out 0s;
+  -o-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+  cursor: pointer;
+  &:focus {
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+ a {
+   @include linkStyle();
+ }
+
+.container {
+  padding-left: 45px;
+  padding-right: 45px;
+  @include responsive(sm) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+hr {
+  margin: 60px 0;
+  padding: 0px;
+  border-bottom: 1px solid #eceff8;
+  border-top: 0px;
+}
+
+@import "node_modules/getbase/scss/base/_helpers";
